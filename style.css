@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+  
+  html {
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', Helvetica, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    word-spacing: 0.05em;
+    margin-inline: auto;
+  }
+
+  .container {
+    display: grid;
+    grid-template-rows: 170px auto;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: 
+        'sidebar header'
+        'sidebar main';
+    height: 100vh;
+  }
+
+/* do this with the header are too - profile and intro */
+  .main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+      "projects announcements";
+    background-color: #B5C2C8;
+  }
+  
+/* make it more responsive - adjust conform the size */
+  .sidebar {
+    grid-area: sidebar;
+    background-color: #263C4A;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .projects {
+    grid-area: projects;
+  }
+
+  .announcements {
+    grid-area: announcements;
+  }

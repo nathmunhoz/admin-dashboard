@@ -1,57 +1,184 @@
+/* base */
+
 * {
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
   
-  *, *::before, *::after {
-    box-sizing: inherit;
-  }
+html {
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  line-height: 1.5;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  word-spacing: 0.05em;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 350px 1fr;
+  grid-template-areas: 
+    'sidebar header'
+    'sidebar main';
+  min-height: 100vh;
+}
+
+/* MAIN */
+
+.main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: 
+    "projects announcements";
+  background-color: #B5C2C8;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+.projects {
+  grid-area: projects;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.announcements {
+  grid-area: announcements;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* SIDEBAR */
   
-  html {
-    box-sizing: border-box;
-    font-family: 'Source Sans Pro', Helvetica, sans-serif;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    font-size: 16px;
-    letter-spacing: 0.03em;
-    word-spacing: 0.05em;
-    margin-inline: auto;
-  }
+.sidebar {
+  grid-area: sidebar;
+  background-color: #263C4A;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+}
 
-  .container {
-    display: grid;
-    grid-template-rows: 170px auto;
-    grid-template-columns: 200px 1fr;
-    grid-template-areas: 
-        'sidebar header'
-        'sidebar main';
-    height: 100vh;
-  }
+.logo {
+  display: flex;
+  gap: 1rem;
+}
 
-/* do this with the header are too - profile and intro */
-  .main {
-    grid-area: main;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas: 
-      "projects announcements";
-    background-color: #B5C2C8;
-  }
-  
-/* make it more responsive - adjust conform the size */
-  .sidebar {
-    grid-area: sidebar;
-    background-color: #263C4A;
-  }
+.sidebar h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
 
-  .header {
-    grid-area: header;
-  }
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
 
-  .projects {
-    grid-area: projects;
-  }
+.sidebar li {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
 
-  .announcements {
-    grid-area: announcements;
-  }
+.row2 {
+  margin-top: 2rem;
+}
+
+/* HEADER */
+
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto; 
+  grid-template-areas: 
+    "search profile"
+    "intro buttons";
+  background-color: #f3f4f6;
+  padding: 1.2rem 2rem;
+  gap: 1.5rem;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.search-container {
+  grid-area: search;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.search-container input {
+  padding: 0.7rem;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.profile {
+  grid-area: profile;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-left: 8rem;
+  cursor: pointer;
+}
+
+.profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.intro {
+  grid-area: intro;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.intro img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.intro p:first-child {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.intro p:last-child {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.btn {
+  grid-area: buttons;
+  display: flex;
+  justify-self: center;
+  gap: 3rem;
+}
+
+.btn button {
+  background-color: #263C4A;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 1rem 2rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}

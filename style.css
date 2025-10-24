@@ -33,26 +33,27 @@ html {
   grid-template-columns: 2fr 1fr;
   grid-template-areas: 
     "projects announcements";
+  align-items: start;
   background-color: #B5C2C8;
   padding: 2rem;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .projects {
   grid-area: projects;
   font-size: 1.5rem;
   font-weight: 600;
-  align-self: start;
+  align-content: start;
   /* for the cards */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem;
   width: 100%;
 }
 
 .princ {
-  /* This makes the "Your Projects" title span from the first column line (1) 
-     to the last column line (-1) of the .projects grid. */
+  /* This makes the "Your Projects / Announcements / Trending" title span from the first column line (1) 
+     to the last column line (-1) grid. */
   grid-column: 1 / -1; 
 }
 
@@ -62,7 +63,6 @@ html {
   font-weight: 600;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .projects div {
@@ -72,6 +72,12 @@ html {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   border-left: 15px solid #263C4A;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Key property: This pushes the last item (your icons) to the bottom */
+  display: flex;             
+  flex-direction: column;    
+  justify-content: space-between;
+  min-height: 100%; 
+  height: 100%;
 }
 
 .projects div:hover {
@@ -82,6 +88,72 @@ html {
   font-size: 1.3rem;
   font-weight: 100;
   margin: 1rem 0;
+  flex-grow: 1; /* Allows the paragraph to stretch vertically */
+}
+
+.card-icons {
+  display: flex;
+  justify-content: flex-end; 
+  margin-top: 1rem;
+  gap: 1rem; 
+}
+
+.projects svg {
+  height: 2rem;
+  width: 2rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+.projects svg:active {
+  transform: scale(1.1);
+}
+
+.announcements div {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 0 2.5rem;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.a1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+.a2 {
+  font-size: 1rem;
+  font-weight: 100;
+  margin-bottom: 1.5rem;
+}
+
+.image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.trending-profile {
+  display: flex;
+  gap: 1.5rem; 
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.trending-user {
+  font-size: 1.15rem; 
+  font-weight: 600;
+  margin: 0;
+}
+
+.trending-name {
+  font-size: 1rem; 
+  font-weight: 100;
+  margin: 0;
+  color: #424242;
 }
 
 /* SIDEBAR */
@@ -100,9 +172,21 @@ html {
   gap: 1rem;
 }
 
+.logo svg {
+  height: 3rem;
+  width: 3rem;
+}
+
+.row1 svg,
+.row2 svg {
+  height: 2rem;
+  width: 2rem;
+}
+
 .sidebar h2 {
   margin-bottom: 1.5rem;
-  font-size: 2rem;
+  font-size: 2.1rem;
+  align-items: center;
 }
 
 .sidebar ul {
@@ -113,10 +197,14 @@ html {
 .sidebar li {
   display: flex;
   gap: 1.5rem;
-  margin: 1.8rem 0;
+  margin: 2.3rem 0;
   cursor: pointer;
   font-weight: 600;
   font-size: 1.3rem;
+}
+
+.sidebar p:hover {
+  border-bottom: 2px solid #fff;
 }
 
 .row2 {
@@ -172,6 +260,17 @@ html {
   border-radius: 50%;
 }
 
+.profile p:active,
+.profile img:active,
+.profile svg:active {
+  transform: scale(1.1);
+}
+
+.profile svg {
+  width: 2rem;
+  height: 2rem;
+}
+
 .intro {
   grid-area: intro;
   display: flex;
@@ -209,7 +308,7 @@ html {
   border-radius: 30px;
   padding: 1rem 2rem;
   width: 100%;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;

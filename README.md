@@ -33,3 +33,4 @@ This dashboard is built exclusively with foundational web technologies, demonstr
 
 ---
 
+<img width="1440" height="738" alt="image" src="https://github.com/user-attachments/assets/7427e60c-7b98-44ea-9fb4-306737f7b08c" />

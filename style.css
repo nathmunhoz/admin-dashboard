@@ -237,7 +237,7 @@ html {
 }
 
 .search-container input {
-  padding: 0.7rem;
+  padding: 0.5rem;
   border-radius: 20px;
   border: 1px solid #ccc;
   width: 100%;
@@ -250,7 +250,7 @@ html {
   align-items: center;
   gap: 2rem;
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-left: 8rem;
   cursor: pointer;
 }
@@ -287,7 +287,7 @@ html {
 
 .intro p:first-child {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .intro p:last-child {
